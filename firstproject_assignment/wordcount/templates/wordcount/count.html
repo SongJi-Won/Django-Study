@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Word Count Assignment</title>
+
+        <script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script>
+
+        <!-- 합쳐지고 최소화된 최신 CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+        <!-- 부가적인 테마 -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+        <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        
+        <link rel="stylesheet" href="mystyle.css">
+
+        <style>
+            .basic {background: #999999; padding-top: 10px; padding-bottom: 10px; }
+            .extra1 {background: #61ADFF; padding-top: 10px; padding-bottom: 10px; }
+            .extra2 {background: #5CA5F2; padding-top: 10px; padding-bottom: 10px; }
+            .extra3 {background: #579CE6; padding-top: 10px; padding-bottom: 10px; }
+            .extra4 {background: #5293D9; padding-top: 10px; padding-bottom: 10px; }
+            .extra5 {background: #4E8BCC; padding-top: 10px; padding-bottom: 10px; }
+            
+        </style>
+        
+    </head>
+
+    <body>
+        <div class="container">
+
+            <ul class="nav nav-pills">
+                <li role="presentation"><a href="{% url 'home' %}">Home</a></li>
+                <li role="presentation"><a href="{% url 'about' %}">About</a></li>
+                <li role="presentation" class="active"><a href="#">Count Result</a></li>
+            </ul>
+
+            <div class="basic">
+                <p>
+                    <h2>기본기능</h2>
+                    <h3>당신이 입력한 단어는 총 <mark><!--총 단어수--> {{total}} </mark> 단어로 구성되어 있습니다.<h3>
+
+                    {% comment %} <a href="{% url 'home' %}">다시하기</a> {% endcomment %}
+
+                    <h3>입력한 텍스트:</h3>
+                    {% comment %} 입력받은 전체 텍스트 {% endcomment %}
+                    {{fulltext}}
+
+                    <h3>단어 카운트</h3>
+                    {% comment %} 단어 - 나온 횟수 {% endcomment %}
+                    {% for word, countTotal in dictionary %}
+                    {{word}} : {{countTotal}}
+                    <br>
+                    {% endfor %}
+                </p>
+            </div>
+
+            <div class="extra1">
+                <h3>추가기능 1: 당신의 문장은 총 <mark><strong>{{numOfDot}}</strong></mark> 문장으로 구성되어 있습니다. <i>(". "기준)</i><h3>
+            </div>
+
+            <div class="extra2">
+                <h3>추가기능 2: 당신의 문장에서 가장 긴 단어는 <mark><strong>{{longestWord}}</strong></mark>입니다.<h3>
+            </div> 
+
+            <div class="extra3">
+               <h3>추가기능 3: Count 기준으로 내림차순 정렬하기</h3>
+                
+                {% for sortedWord, sortedCountTotal in sortedDictionary %}
+                {{sortedWord}} : {{sortedCountTotal}}
+                <br>
+                {% endfor %}
+            </div>
+            
+            <div class="extra4">
+                <h3>추가기능 4: Count 기준으로 가장 많이 나온 단어는 <mark><strong>[{{toppestWord}}]</strong></mark>입니다.<h3>
+            </div>
+
+            <div class="extra5">
+                <h3>추가기능 5: 당신이 입력한 단어는 <mark><strong>공백포함</strong></mark>총 <mark><strong><!--총 단어수--> {{totalNblank}} </strong></mark> 단어로 구성되어 있습니다.<h3>
+            </div>
+
+            <br>
+            <br>
+        </div>
+    </body>
+</html>

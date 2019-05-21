@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Word Count Assignment</title>
+
+        <script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script>
+
+        <!-- 합쳐지고 최소화된 최신 CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+        <!-- 부가적인 테마 -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+        <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    </head>
+
+    <body>
+        <div class="container">
+
+            <ul class="nav nav-pills">
+                <li role="presentation"><a href="{% url 'home' %}">Home</a></li>
+                <li role="presentation" class="active"><a href="#">About</a></li>
+                <li role="presentation" class="disabled"><a href="#">Count Result</a></li>
+            </ul>
+
+            <h1>ABOUT</h1>
+            <br>
+            {% comment %} <a href="{% url 'home' %}">HOME으로 가기</a> {% endcomment %}
+            <p>멋쟁이 사자처럼 7기 송지원이 만든 과제입니다.</p>
+
+        </div>
+    </body>
+</html>
+
+
+
+
