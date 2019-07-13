@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+
+<body>
+    <div class='container'>
+        <h1>this is detail page</h2>
+
+        <div class="card" >
+            <div class="card-body">
+                <h3 class="card-title">{{blog.title}}</h5>
+                <h4 class="card-subtitle mb-2 text-muted">{{blog.pub_date}}</h6>
+                <p class="card-text">{{blog.body}}</p>
+            </div>
+        </div>        
+    </div>
+</body>
+
+{% endblock %}
